@@ -35,6 +35,7 @@ const UserMe = () => {
             fetch(`${process.env.NEXT_PUBLIC_API_URL}/getbasket/${user.basketId}`)
             .then(r=>r.json())
             .then(d=>{
+                console.log(d);
                 setData(d.map((e)=>{
                     return {
                         id: e.id,

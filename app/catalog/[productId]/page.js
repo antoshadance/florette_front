@@ -17,16 +17,19 @@ const ProductPage = () => {
 
     const {user} = useUser();
 
+    const [updUser,setUpdUser] = useState(user)
+
 
 
      const [product,setProduct] = useState(undefined)
 
     useEffect(()=>{
+        setUpdUser(user)
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`)
         .then(r=>r.json())
         .then(d=>setProduct(d.product))
         .catch(e=>console.log(e))
-    },[])
+    },[user])
 
     const Content = ({product}) => {
 
@@ -35,17 +38,17 @@ const ProductPage = () => {
 
         function addToBasket() {
 
-            console.log(product)
-
             const fd = new FormData();
-
+            console.log(product)
+            console.log(id)
             fd.append("productId",id);
-            fd.append("basketId",user.basketId)
+            fd.append("basketId",updUser.basketId)
+
 
             fetch(`${process.env.NEXT_PUBLIC_API_URL}/addtobasket`,{
                 method:"post",
                 body: fd
-            })
+            }).then(r=>r.json()).then(d=>console.log(d)).catch(e=>console.log(e))
         }
 
     
