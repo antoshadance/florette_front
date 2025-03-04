@@ -1,101 +1,140 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import Link from "next/link";
+import {cn, pfFont} from "@/lib/utils"
+import Navbar from "./_components/Navbar";
+import "./globals.css";
+import { Button } from "@/components/ui/button";
+import Footer from "./_components/Footer";
+
+const Hero = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div className="h-[100vh] w-[100vw] hero">
+        <div className="w-full h-full onhero px-4 lg:px-24 pt-[150px] text-white ">
+          <section className="w-full lg:w-2/3 flex flex-col gap-y-20 lg:gap-y-12">
+            <h2 className="text-2xl lg:text-6xl uppercase font-medium">Вдохновение в каждом букете</h2>
+            <p className="text-lg lg:text-3xl font-light">
+              Дарите эмоции вместе с нашими уникальными композициями. Мы создаём букеты, которые расскажут о ваших чувствах лучше слов.
+              <br/>
+              <br/>
+              Доставка по городу и индивидуальный подход к каждому заказу.
+            </p>
+            <Link href={"/catalog"}>
+              <Button variant={"secondary"} className={cn("px-12 cursor-pointer bg-white/25 transition-all text-white hover:text-black w-2/3 lg:w-fit text-lg font-light py-5")}>В каталог</Button>
+            </Link>
+          </section>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      </div>
+  )
 }
+
+const About = () => {
+  return (
+    <section id="about_us" className=" w-full h-fit flex flex-col gap-y-12 lg:flex-row justify-between px-4 lg:px-24 py-6 lg:pt-[100px] text-white">
+
+      <div className="w-full lg:w-1/2 flex flex-col gap-y-6 lg:gap-y-24">
+        <h2 className={cn(pfFont.className,"uppercase text-xl lg:text-4xl")}>О нас</h2>
+        <p className="lg:text-2xl">
+          Добро пожаловать в  <span className={cn(pfFont.className,"uppercase text-lg lg:text-3xl")}>Florette</span> — цветочный онлайн-магазин, где каждая деталь создана с любовью и вниманием к вашим эмоциям.
+          <br/>
+          <br/>
+          Мы  уже несколько лет дарим нашим клиентам радость, вдохновение и красоту в каждом букете.
+        </p>
+      </div>
+
+      <div className="w-full lg:w-1/3 flex flex-col items-center gap-y-6">
+        <h2 className="uppercase text-lg lg:text-2xl">Почему выбирают нас?</h2>
+
+        <ul className="flex flex-col gap-y-8 w-full">
+          <li className="flex flex-col gap-y-2 border border-white/50 rounded-md p-4">
+            <h3 className="uppercase w-full text-center font-medium">Качество и свежесть</h3>
+            <p>
+            Мы работаем только с проверенными поставщиками и следим за тем, чтобы каждый цветок в нашем магазине был идеальным.
+            </p>
+          </li>
+          <li className="flex flex-col gap-y-2 border border-white/50 rounded-md p-4">
+            <h3 className="uppercase w-full text-center font-medium">Индивидуальный подход</h3>
+            <p>
+            Мы создаём букеты, которые отражают вашу уникальность. Хотите романтичный пион или элегантную розу? Мы воплотим ваши пожелания.
+            </p>
+          </li>
+          <li className="flex flex-col gap-y-2 border border-white/50 rounded-md p-4">
+            <h3 className="uppercase w-full text-center font-medium">Удобство</h3>
+            <p>
+            Быстрая доставка по Красноярску и возможность заказать букет онлайн делают процесс покупки максимально комфортным
+            </p>
+          </li>
+        </ul>
+
+      </div>
+
+    </section>
+  )
+}
+
+const CatalogPreview = () => {
+  return (
+    <div className="flex flex-col gap-y-12 w-full px-4 lg:px-24 py-6 lg:py-[100px] text-white">
+      <h2 className={cn(pfFont.className,"text-right uppercase text-4xl")}>Каталог</h2>
+
+      <div className="w-full flex flex-col gap-y-2 gap-x-1 lg:flex-row lg:h-[600px] justify-between">
+
+        <Link href={"/catalog/author"} className="w-full lg:w-[54.5%] lg:h-full h-[120px]">
+        <div className="relative h-full w-full ">
+          <img
+            className="w-full h-full object-cover authorb"
+            src="/author.jpg"
+          />
+          <div className="hover:backdrop-blur-[2px] transition-all absolute top-0 flex items-center justify-center left-0 w-full h-full bg-black/60">
+            <h3 className={cn(pfFont.className,"uppercase lg:text-4xl")}>Авторские букеты</h3>
+          </div>
+        </div>
+        </Link>
+
+        <div className="flex flex-col gap-y-3 w-full lg:w-[44.5%] lg:h-full ">
+          <Link href={"/catalog/mono"} className="w-full h-[120px] lg:h-[59%]">
+            <div className="w-full h-full relative">
+              <img src="/mono.jpg" className="h-full w-full object-cover"/>
+              <div className="hover:backdrop-blur-[2px] transition-all absolute top-0 flex items-center justify-center left-0 w-full h-full bg-black/60">
+                <h3 className={cn(pfFont.className,"uppercase lg:text-4xl")}>Монокомпозиции</h3>
+              </div>
+            </div>
+          </Link>
+
+          <div className="w-full lg:h-[39%] flex gap-x-3">
+            <Link href={"/catalog/orchids"} className="w-1/2 h-[120px] lg:h-full relative">
+              <img src="/orchid.jpg" className="w-full h-full object-cover"/>
+              <div className="hover:backdrop-blur-[2px] transition-all absolute top-0 flex items-center justify-center left-0 w-full h-full bg-black/60">
+                <h3 className={cn(pfFont.className,"uppercase lg:text-4xl text-center")}>Орхидеи</h3>
+              </div>
+            </Link>
+            <Link href={"/catalog/dry"} className="w-1/2 h-[120px] lg:h-full relative">
+            <img src="/sukh.jpg" className="w-full h-full object-cover"/>
+            <div className="hover:backdrop-blur-[2px] transition-all absolute top-0 flex items-center justify-center left-0 w-full h-full bg-black/60">
+                <h3 className={cn(pfFont.className,"uppercase lg:text-4xl text-center")}>Сухоцветы</h3>
+              </div>
+
+            </Link>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  )
+}
+
+
+const Home = () => {
+  return ( 
+    <>
+      <Navbar/>
+      <Hero/>
+      <About/>
+      <CatalogPreview/>
+      <Footer/>
+    </>
+   );
+}
+ 
+export default Home;
