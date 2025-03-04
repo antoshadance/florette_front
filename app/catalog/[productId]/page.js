@@ -10,21 +10,10 @@ import { redirect, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 
-export async function generateStaticParams() {
-    const products = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
-    .then(res => res.json())
 
-    return products.map((product) => ({
-        productId: product.id.toString(), // Ensure the value is a string
-    }));
+const ProductPage = () => {
 
-}
-
-
-
-const ProductPage = ({params}) => {
-
-    const {productId} = params;
+    const {productId} = useParams();
 
     const {user} = useUser();
 
@@ -33,7 +22,6 @@ const ProductPage = ({params}) => {
      const [product,setProduct] = useState(undefined)
 
     useEffect(()=>{
-
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${productId}`)
         .then(r=>r.json())
         .then(d=>setProduct(d.product))

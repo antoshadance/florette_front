@@ -1,3 +1,5 @@
+"use client"
+
 import { createContext, useContext, useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import { redirect } from "next/navigation";
@@ -6,13 +8,13 @@ const AuthContext = createContext();
 
 export const AuthProvider =  ({children}) => {
 
-    const [storedValue,setStoredValue] = useState(undefined)
+    const [user,setUser] = useState(undefined);
 
-    useEffect(()=>{
-        setStoredValue(localStorage.getItem("user"));
-    },[])
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        setUser(storedUser ? jwtDecode(storedUser) : undefined);
+    }, []);
 
-    const [user,setUser] = useState(localStorage.getItem("user")?jwtDecode(localStorage.getItem("user")):undefined);
 
     function login (data,route)  {
         console.log(data)

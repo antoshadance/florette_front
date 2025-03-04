@@ -13,6 +13,7 @@ import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue,} from "@/
 const AddProductPage = () => {
 
     const {user,logout} = useUser();
+    const [token,setToken] = useState(undefined)
 
    
 
@@ -131,7 +132,9 @@ const AddProductPage = () => {
             setFile(null);
         }
 
-        const token = localStorage.getItem("user");
+        useEffect(()=>{
+            setToken(localStorage.getItem("user"))
+        })
 
         const handleSubmit = (e) => {
 
@@ -155,7 +158,16 @@ const AddProductPage = () => {
             .then((d)=>{console.log(d)})
             .catch(e=>console.log(e))
 
-            
+            setForm({
+                name:"",
+                price:"",
+                description:"",
+                catId:""
+            })
+
+            setFile(null)
+
+            setPreview(null)
 
         }
 

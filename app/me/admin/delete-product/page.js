@@ -53,13 +53,11 @@ const DeleteProductPage = () => {
 
         const CatalogIn = () => {
 
-            const token = localStorage.getItem("user");
-
             const handleDelete = (id) => {
                 fetch(`${process.env.NEXT_PUBLIC_API_URL}/delete-product/${id}`,
                     {
                         headers: {
-                            "Authorization": `Bearer ${token}`
+                            "Authorization": `Bearer ${localStorage.getItem("user")}`
                         }
                     }
                 ).then(r=>r.json())

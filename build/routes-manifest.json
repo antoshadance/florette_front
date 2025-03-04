@@ -1,0 +1,148 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "dynamicRoutes": [
+    {
+      "page": "/catalog/[productId]",
+      "regex": "^/catalog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPproductId": "nxtPproductId"
+      },
+      "namedRegex": "^/catalog/(?<nxtPproductId>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/auth",
+      "regex": "^/auth(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/auth(?:/)?$"
+    },
+    {
+      "page": "/catalog",
+      "regex": "^/catalog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/catalog(?:/)?$"
+    },
+    {
+      "page": "/catalog/author",
+      "regex": "^/catalog/author(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/catalog/author(?:/)?$"
+    },
+    {
+      "page": "/catalog/dry",
+      "regex": "^/catalog/dry(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/catalog/dry(?:/)?$"
+    },
+    {
+      "page": "/catalog/mono",
+      "regex": "^/catalog/mono(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/catalog/mono(?:/)?$"
+    },
+    {
+      "page": "/catalog/orchids",
+      "regex": "^/catalog/orchids(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/catalog/orchids(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/me",
+      "regex": "^/me(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/me(?:/)?$"
+    },
+    {
+      "page": "/me/admin",
+      "regex": "^/me/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/me/admin(?:/)?$"
+    },
+    {
+      "page": "/me/admin/add-product",
+      "regex": "^/me/admin/add\\-product(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/me/admin/add\\-product(?:/)?$"
+    },
+    {
+      "page": "/me/admin/delete-product",
+      "regex": "^/me/admin/delete\\-product(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/me/admin/delete\\-product(?:/)?$"
+    },
+    {
+      "page": "/me/user",
+      "regex": "^/me/user(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/me/user(?:/)?$"
+    },
+    {
+      "page": "/me/user/basket",
+      "regex": "^/me/user/basket(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/me/user/basket(?:/)?$"
+    },
+    {
+      "page": "/me/user/order",
+      "regex": "^/me/user/order(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/me/user/order(?:/)?$"
+    },
+    {
+      "page": "/test",
+      "regex": "^/test(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/test(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "RSC",
+    "varyHeader": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch",
+    "prefetchHeader": "Next-Router-Prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "Next-Router-Segment-Prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  },
+  "rewrites": []
+}
