@@ -11,7 +11,7 @@ const MeLayout = ({children}) => {
     useEffect(()=>{
         if (!user) {
             redirect("/auth")
-        }
+        };
     },[user])
 
     return ( 
