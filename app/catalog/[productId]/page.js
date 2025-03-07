@@ -55,7 +55,7 @@ const ProductPage = () => {
         return (<>
             {product&&
                 <div className="w-[100vw] lg:h-[100vh] lg:px-0 px-4 lg:pr-24 pt-[120px] pb-12 flex flex-col gap-y-12 lg:flex-row lg:items-center">
-                <img src={`${process.env.NEXT_PUBLIC_API_URL}/${img}`} className="lg:w-2/3 lg:h-full object-cover"/>
+                <img alt={`${name}`} src={`${process.env.NEXT_PUBLIC_API_URL}/${img}`} className="lg:w-2/3 lg:h-full object-cover"/>
                 <section className="flex flex-col gap-y-2 lg:gap-y-6 lg:pl-24 text-white">
                     <h2 className={cn(pfFont.className,"text-4xl uppercase lg:text-center")}>{name}</h2>
                     <p className="font-semibold text-2xl my-6 lg:my-0 text-right">{price&&

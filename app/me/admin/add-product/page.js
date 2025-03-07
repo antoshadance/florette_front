@@ -47,7 +47,7 @@ const AddProductPage = () => {
                     </div>
                     <div className="w-full flex flex-col gap-y-2">
                         <p>Категория</p>
-                        <Select onValueChange={handleCat}>
+                        <Select onValueChange={handleCat} disabled={form.name==""}>
                         <SelectTrigger className="w-full focus-visible:outline-none ring-0 border-none bg-black/10">
                             <SelectValue placeholder="..." />
                         </SelectTrigger>
@@ -66,7 +66,7 @@ const AddProductPage = () => {
                     {!hasFile&&
                     <label htmlFor="src" className="w-full h-full flex flex-col items-center justify-center cursor-pointer gap-y-6">
                         <Image size={48} strokeWidth={1.5}/>
-                        <h3 className="uppercase font-light">Добавить фото</h3>
+                        <span className="uppercase font-light">Добавить фото</span>
                     </label>}
                     {hasFile&&
                     <div className="w-full h-full relative p-1">

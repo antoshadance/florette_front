@@ -77,7 +77,7 @@ const Filters = ({data,apply}) => {
 
             </ul>
         </div>
-        <div className="w-full flex items-center flex-col gap-y-4">
+        <div className="w-full flex flex-col gap-y-4">
             <h3 className="uppercase lg:text-xl">Цена</h3>
             <div className="w-full flex justify-between gap-x-2">
                 <p className="shrink-0">₽</p>

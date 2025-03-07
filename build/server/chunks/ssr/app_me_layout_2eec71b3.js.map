@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/anton/Desktop/florette_front/app/me/layout.js"],"sourcesContent":["\"use client\"\n\nimport { useEffect } from \"react\";\nimport { useUser } from \"../context/userContext\";\nimport { redirect } from \"next/navigation\";\n\nconst MeLayout = ({children}) => {\n\n    const {user} = useUser();\n\n    useEffect(()=>{\n        if (!user) {\n            redirect(\"/auth\")\n        }\n    },[user])\n\n    return ( \n        <div className=\"w-[100vw] h-[100vh]\">\n            {children}\n        </div>\n     );\n}\n \nexport default MeLayout;"],"names":[],"mappings":";;;;AAEA;AACA;AACA;AAJA;;;;;AAMA,MAAM,WAAW,CAAC,EAAC,QAAQ,EAAC;IAExB,MAAM,EAAC,IAAI,EAAC,GAAG,CAAA,GAAA,6HAAA,CAAA,UAAO,AAAD;IAErB,CAAA,GAAA,qMAAA,CAAA,YAAS,AAAD,EAAE;QACN,IAAI,CAAC,MAAM;YACP,CAAA,GAAA,kIAAA,CAAA,WAAQ,AAAD,EAAE;QACb;IACJ,GAAE;QAAC;KAAK;IAER,qBACI,8OAAC;QAAI,WAAU;kBACV;;;;;;AAGb;uCAEe","debugId":null}},
+    {"offset": {"line": 38, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

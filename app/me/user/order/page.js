@@ -55,7 +55,7 @@ const UserMe = () => {
             return (
                 <div className="w-full h-[150px] flex justify-between">
                     <img className="w-1/2 lg:w-[20%] h-full object-cover" src={props.src?process.env.NEXT_PUBLIC_API_URL+"/"+props.src:"/orchid.jpg"}/>
-                    <div className="lg:w-[60%] hidden lg:flex justify-between px-1">
+                    <div className="lg:w-[60%] hidden lg:flex justify-between px-1 lg:pl-12">
                         <div className="w-[20%] h-full  flex flex-col gap-y-6">
                             <h3 className="uppercase text-center">Наименование</h3>
                             <p className={cn(pfFont.className,"text-center text-xl")}>{props.name?props.name:"lksf"}</p>
@@ -71,7 +71,7 @@ const UserMe = () => {
                     <div className="w-1/2 lg:w-[20%] h-full flex flex-col gap-y-2 items-end">
                         <X strokeWidth={1.5} onClick={props.delete} role="button" className="hover:text-[#ccc] cursor-pointer transition-all"/>
                         <p className={cn(pfFont.className,"block lg:hidden text-end text-sm")}>{props.name?props.name:"lksf"}</p>
-                        <p className={cn("text-center")}>{props.price?
+                        <p className={cn("text-center lg:hidden")}>{props.price?
                             new Intl.NumberFormat("ru-RU", { maximumSignificantDigits: 3 }).format(props.price) + " ₽":
                              "- ₽"
                         }</p>

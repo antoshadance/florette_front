@@ -4,7 +4,6 @@ import Link from "next/link";
 import {cn, pfFont} from "@/lib/utils"
 import Navbar from "./_components/Navbar";
 import "./globals.css";
-import { Button } from "@/components/ui/button";
 import Footer from "./_components/Footer";
 
 const Hero = () => {
@@ -19,8 +18,11 @@ const Hero = () => {
               <br/>
               Доставка по городу и индивидуальный подход к каждому заказу.
             </p>
-            <Link href={"/catalog"}>
+            {/* <Link href={"/catalog"}>
               <Button variant={"secondary"} className={cn("px-12 cursor-pointer bg-white/25 transition-all text-white hover:text-black w-2/3 lg:w-fit text-lg font-light py-5")}>В каталог</Button>
+            </Link> */}
+            <Link href={"/catalog"} className={cn("rounded-md px-12 cursor-pointer bg-white/25 transition-all text-white hover:bg-white hover:text-black w-2/3 lg:w-fit text-lg font-light py-2")}>
+              В каталог
             </Link>
           </section>
         </div>
@@ -82,6 +84,7 @@ const CatalogPreview = () => {
         <Link href={"/catalog/author"} className="w-full lg:w-[54.5%] lg:h-full h-[120px]">
         <div className="relative h-full w-full ">
           <img
+            alt="Авторские букеты"
             className="w-full h-full object-cover authorb"
             src="/author.jpg"
           />
@@ -94,7 +97,7 @@ const CatalogPreview = () => {
         <div className="flex flex-col gap-y-3 w-full lg:w-[44.5%] lg:h-full ">
           <Link href={"/catalog/mono"} className="w-full h-[120px] lg:h-[59%]">
             <div className="w-full h-full relative">
-              <img src="/mono.jpg" className="h-full w-full object-cover"/>
+              <img alt="Монобукеты" src="/mono.jpg" className="h-full w-full object-cover"/>
               <div className="hover:backdrop-blur-[2px] transition-all absolute top-0 flex items-center justify-center left-0 w-full h-full bg-black/60">
                 <h3 className={cn(pfFont.className,"uppercase lg:text-4xl")}>Монокомпозиции</h3>
               </div>
@@ -103,13 +106,13 @@ const CatalogPreview = () => {
 
           <div className="w-full lg:h-[39%] flex gap-x-3">
             <Link href={"/catalog/orchids"} className="w-1/2 h-[120px] lg:h-full relative">
-              <img src="/orchid.jpg" className="w-full h-full object-cover"/>
+              <img alt="Орхидеи" src="/orchid.jpg" className="w-full h-full object-cover"/>
               <div className="hover:backdrop-blur-[2px] transition-all absolute top-0 flex items-center justify-center left-0 w-full h-full bg-black/60">
                 <h3 className={cn(pfFont.className,"uppercase lg:text-4xl text-center")}>Орхидеи</h3>
               </div>
             </Link>
             <Link href={"/catalog/dry"} className="w-1/2 h-[120px] lg:h-full relative">
-            <img src="/sukh.jpg" className="w-full h-full object-cover"/>
+            <img alt="Сухоцветы" src="/sukh.jpg" className="w-full h-full object-cover"/>
             <div className="hover:backdrop-blur-[2px] transition-all absolute top-0 flex items-center justify-center left-0 w-full h-full bg-black/60">
                 <h3 className={cn(pfFont.className,"uppercase lg:text-4xl text-center")}>Сухоцветы</h3>
               </div>
