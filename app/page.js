@@ -21,7 +21,7 @@ const Hero = () => {
             {/* <Link href={"/catalog"}>
               <Button variant={"secondary"} className={cn("px-12 cursor-pointer bg-white/25 transition-all text-white hover:text-black w-2/3 lg:w-fit text-lg font-light py-5")}>В каталог</Button>
             </Link> */}
-            <Link href={"/catalog"} className={cn("rounded-md px-12 cursor-pointer bg-white/25 transition-all text-white hover:bg-white hover:text-black w-2/3 lg:w-fit text-lg font-light py-2")}>
+            <Link href={"/catalog"} className={cn("text-center rounded-md px-12 cursor-pointer bg-white/25 transition-all text-white hover:bg-white hover:text-black w-2/3 lg:w-fit text-lg font-light py-2")}>
               В каталог
             </Link>
           </section>

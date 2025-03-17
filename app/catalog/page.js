@@ -5,27 +5,12 @@ import Footer from "../_components/Footer";
 import Navbar from "../_components/Navbar";
 import { cn } from "@/lib/utils";
 import { DualRangeSlider } from "@/components/ui/dualrangeslider";
-import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
 import { redirect } from "next/navigation";
+import ProductCard from "../_components/ProductCard";
+import ProductList from "../_components/ProductList";
 
 
-const ProductCard = (props) => {
-
-    return (
-        <Link href={`/catalog/${props.id}`} className="group h-[360px] w-[49%] lg:w-[31.13%] bg-red-50 relative">
-            <img
-                alt={`${props.name}`}
-                className="text-black w-full h-full object-cover group-hover:blur-[1px] transition-all"
-                src={props.src}
-            />
-            <div className="absolute bottom-0 h-[40%] w-full p-4 bg-black/40 flex flex-col justify-between">
-                <h3 className="text-2xl font-light uppercase">{props.name}</h3>
-                <h4 className="text-2xl ">{new Intl.NumberFormat("ru-RU", { maximumSignificantDigits: 3 }).format(props.price)} ₽</h4>
-            </div>
-        </Link>
-    )
-}
 
 const Filters = ({initData,apply}) => {
 
@@ -147,7 +132,9 @@ const CatalogMain = () => {
     return (
         <div className="text-white w-[100vw] min-h-[100vh] lg:h-[100vh] pt-[calc(100px+1rem)] px-4 lg:px-24 gap-y-6  pb-4 flex flex-col lg:flex-row">
             <Filters initData={initData} apply={handleApplyFilters}/>
-            <Products data={filteredData}/>
+            <div className="w-full lg:w-3/4 lg:pl-4 lg:h-full lg:overflow-scroll flex flex-wrap justify-between lg:justify-normal lg:gap-x-[3.3%] gap-y-4 lg:gap-y-12 hideyscroll">
+                <ProductList data={filteredData}/>
+            </div>
         </div>
     )
 }

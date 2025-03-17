@@ -7,23 +7,11 @@ import { cn } from "@/lib/utils";
 import { DualRangeSlider } from "@/components/ui/dualrangeslider";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
-import { redirect } from "next/navigation"
+import { redirect } from "next/navigation";
+import ProductCard from "@/app/_components/ProductCard";
 
 
-const ProductCard = (props) => {
-    return (
-        <Link href={`/catalog/${props.id}`} className="group h-[360px] lg:w-[30%] bg-red-50 relative">
-            <img
-                className="w-full h-full object-cover group-hover:blur-[1px] transition-all"
-                src={props.src}
-            />
-            <div className="absolute bottom-0 h-[40%] w-full p-4 bg-black/40 flex flex-col justify-between">
-                <h3 className="text-2xl font-light uppercase">{props.name}</h3>
-                <h4 className="text-2xl ">{new Intl.NumberFormat("ru-RU", { maximumSignificantDigits: 3 }).format(props.price)} ₽</h4>
-            </div>
-        </Link>
-    )
-}
+
 
 const Filters = ({data,apply}) => {
 

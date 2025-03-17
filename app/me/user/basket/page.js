@@ -53,7 +53,7 @@ const BasketPage = () => {
     const BasketProduct = (props) => {
         return (
             <div className="w-full h-[150px] flex justify-between">
-                <img className="w-1/2 lg:w-[20%] h-full object-cover" src={props.src?process.env.NEXT_PUBLIC_API_URL+"/"+props.src:"/orchid.jpg"}/>
+                <img className="w-1/2 lg:w-[20%] h-full object-cover rounded" src={props.src?process.env.NEXT_PUBLIC_API_URL+"/"+props.src:"/orchid.jpg"}/>
                 <div className="lg:w-[60%] hidden lg:flex justify-between px-1 lg:pl-12">
                     <div className="w-[20%] h-full  flex flex-col gap-y-6">
                         <h3 className="uppercase text-center">Наименование</h3>

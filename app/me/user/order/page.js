@@ -18,6 +18,8 @@ const OrderPage = () => {
         adress:""
     });
 
+    const [userInfo,setUserInfo] = useState(undefined);
+
     function fetchProducts () {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/getbasket/${user.basketId}`)
         .then(r=>r.json())
@@ -34,7 +36,14 @@ const OrderPage = () => {
     };
 
     useEffect(()=>{
-        fetchProducts()
+        fetchProducts();
+
+        if (user) {
+            let {id} = user;
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-user?qId=${id}`)
+            .then(r=>r.json())
+            .then(d=>setUserInfo(d))
+        } 
     },[]);
 
     useEffect(()=>{
@@ -73,7 +82,7 @@ const OrderPage = () => {
     const BasketProduct = (props) => {
         return (
             <div className="w-full h-[150px] flex justify-between">
-                <img className="w-1/2 lg:w-[20%] h-full object-cover" src={props.src?process.env.NEXT_PUBLIC_API_URL+"/"+props.src:"/orchid.jpg"}/>
+                <img className="w-1/2 lg:w-[20%] h-full object-cover rounded" src={props.src?process.env.NEXT_PUBLIC_API_URL+"/"+props.src:"/orchid.jpg"}/>
                 <div className="lg:w-[60%] hidden lg:flex justify-between px-1 lg:pl-12">
                     <div className="w-[20%] h-full  flex flex-col gap-y-6">
                         <h3 className="uppercase text-center">Наименование</h3>
@@ -138,25 +147,28 @@ const OrderPage = () => {
                                 <div className="w-2/3 lg:w-fit flex flex-col gap-y-2">
                                     <label className="font-light">Имя получателя</label>
                                     <input id="name" onChange={handleChange} value={form.name} className="bg-black/25 rounded-sm p-2 focus:outline-none"></input>
+                                    <p onClick={()=>{setForm({...form,name:userInfo.name})}} className="cursor-pointer w-fit text-white/25 text-xs hover:text-white transition-all ">Использовать мое имя</p>
                                 </div>
                                 <div className="w-2/3 lg:w-fit flex flex-col gap-y-2">
                                     <label className="font-light">Телефон получателя</label>
                                     <input id="phone" onChange={handleChange} value={form.phone} className="bg-black/25 rounded-sm p-2 focus:outline-none"></input>
+                                    <p onClick={()=>{setForm({...form,phone:userInfo.phone})}} className="cursor-pointer w-fit text-white/25 text-xs hover:text-white transition-all ">Использовать мой телефон</p>
                                 </div>
                                 <div className="w-2/3 lg:w-fit flex flex-col gap-y-2">
                                     <label className="font-light">Адрес доставки</label>
                                     <input id="adress" onChange={handleChange} value={form.adress} className="bg-black/25 rounded-sm p-2 focus:outline-none"></input>
+                                    <p onClick={()=>{setForm({...form,adress:userInfo.adress})}} className="cursor-pointer w-fit text-white/25 text-xs hover:text-white transition-all ">Использовать мой адрес</p>
                                 </div>
                             </div>
                             {(data&&data.length>0)?
-                                <Button
-                            className={'cursor-pointer w-2/3 mt-24 self-end'}
+                            <Button
+                            className={'cursor-pointer py-5 w-1/3 mt-24'}
                             variant={"secondary"}
                             >Оформить заказ</Button>
                             :
                             <Button
                             disabled
-                            className={'cursor-pointer w-2/3 mt-24 self-end'}
+                            className={'cursor-pointer py-5 w-1/3 mt-24 '}
                             variant={"secondary"}
                             >Оформить заказ</Button>
                             }
@@ -165,8 +177,8 @@ const OrderPage = () => {
                 </>
                 :
                 <>
-                    <h2 className="text-4xl">Благодарим за заказ!</h2>
-                    <p>Оператор свяжется с вам и уточнит остальные детали</p>
+                    <h2 className="text-4xl mt-18">Благодарим за заказ!</h2>
+                    <p className="text-xl mt-12">Оператор свяжется с Вами и уточнит остальные детали</p>
                 </>
             }
         </div>

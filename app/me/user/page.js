@@ -1,18 +1,16 @@
 "use client"
 
-import Footer from "@/app/_components/Footer";
-import Navbar from "@/app/_components/Navbar";
 import { useUser } from "@/app/context/userContext";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
 
 const UserMe = () => {
 
     const {user,login,logout} = useUser();
 
     useEffect(()=>{
+
 
         if (!user) {
             redirect("/auth")
@@ -21,12 +19,15 @@ const UserMe = () => {
         if (user&&user.role!=="user") {
             redirect("/me/admin")
         }
+
     },[])
+
+
 
     const Cabinet = () => {
         return(
-            <div className="w-full h-full">
-                
+            <div className="w-full h-full flex ">
+                <h2 className="text-4xl">Добро пожаловать{user&&user.username?", "+user.username+"!":"!"}</h2>
             </div>
         )
     }
