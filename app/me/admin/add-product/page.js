@@ -10,8 +10,8 @@ import { X } from "lucide-react";
 const AddProduct = ({form,handleChange,handleFileChange,hasFile,src,handleDeleteImg,handleSubmit,handleCat}) => {
 
     return (
-        <form onSubmit={handleSubmit} className="w-full h-full flex flex-col lg:flex-wrap gap-y-12 justify-between">
-            <div className="flex flex-col gap-y-4 lg:h-1/2 lg:justify-between  lg:w-1/3">
+        <form onSubmit={handleSubmit} className="w-full h-5/6 flex flex-col lg:flex-wrap gap-y-12 justify-between">
+            <div className="flex flex-col gap-y-4 lg:h-2/3 lg:justify-between  lg:w-1/3">
                 <div className="w-full flex flex-col gap-y-2">
                     <label htmlFor="name">Наименование</label>
                     <input
@@ -52,7 +52,7 @@ const AddProduct = ({form,handleChange,handleFileChange,hasFile,src,handleDelete
                 </div>
                 
             </div>
-            <div className="lg:w-[64%] h-1/6 lg:h-1/2 bg-black/10">
+            <div className="lg:w-[64%] h-1/6 lg:h-2/3 bg-black/10">
                 <input accept="image/png, image/jpeg" onChange={handleFileChange} id="src" type="file" className="hidden" />
                 {!hasFile&&
                 <label htmlFor="src" className="w-full h-full flex flex-col items-center justify-center cursor-pointer gap-y-6">
@@ -163,9 +163,12 @@ const AddProductPage = () => {
     }
 
     return ( 
-        <div className="w-full h-full">
+        <main className="w-full h-full">
+            <div className="h-fit w-full mb-12">
+                <h1 className="uppercase text-3xl">Новый товар</h1>
+            </div>
             <AddProduct file={file} handleCat={handleCat} handleSubmit={handleSubmit} handleDeleteImg={handleDeleteImg} src={preview} hasFile={hasFile} form={form} handleChange={handleChange} handleFileChange={handleFileChange}/>
-        </div>
+        </main>
      );
 }
  

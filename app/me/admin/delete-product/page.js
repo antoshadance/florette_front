@@ -82,9 +82,12 @@ const DeleteProductPage = () => {
     }
 
     return ( 
-        <div className="w-full h-full">
+        <main className="w-full h-full">
+            <div className="w-full mb-8">
+                <h2 className="text-3xl uppercase">Удалить товар</h2>
+            </div>
             <CatalogIn/>
-        </div>
+        </main>
      );
 }
  

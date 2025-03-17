@@ -18,7 +18,7 @@ const Navbar = () => {
     }
 
     return ( 
-        <nav className="z-[99] h-[100px] w-[100vw] flex bg-transparent backdrop-blur-[2px] border-b border-black/5 justify-between items-center px-2 lg:px-12 text-white fixed top-0">
+        <header className="z-[99] h-[100px] w-[100vw] flex bg-transparent backdrop-blur-[2px] border-b border-black/5 justify-between items-center px-2 lg:px-12 text-white fixed top-0">
             <Link href={"/"}><h2 className={cn(pfFont.className," uppercase text-3xl lg:text-4xl hover:text-[#dadada] transition-all")}>Florette</h2></Link>
             <ul className="lg:flex items-center gap-x-12 font-light hidden">
                 <li className="hover:text-[#ccc] transition-all">
@@ -62,7 +62,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <Menu className="lg:hidden" onClick={toggleMobileNav}/>
-        </nav>
+        </header>
      );
 }
  

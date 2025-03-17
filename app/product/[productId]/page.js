@@ -85,13 +85,15 @@ const ProductPage = () => {
     return ( 
         <>
             <Navbar/>
-            {!product&&
-                <div className="w-[100vw] h-[100vh] pr-4 lg:pr-24 pt-[120px] pb-12 flex justify-between items-center">
-                    <Skeleton className={"w-3/4 h-full"}/>
-                    <Skeleton className={"w-1/5 h-1/2"}/>
-                </div>
-            }
-            {product&&<Content product={product}/>}
+            <main>
+                {!product&&
+                    <div className="w-[100vw] h-[100vh] pr-4 lg:pr-24 pt-[120px] pb-12 flex justify-between items-center">
+                        <Skeleton className={"w-3/4 h-full"}/>
+                        <Skeleton className={"w-1/5 h-1/2"}/>
+                    </div>
+                }
+                {product&&<Content product={product}/>}
+            </main>
             <Footer/>
         </>
      );

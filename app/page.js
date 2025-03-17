@@ -132,9 +132,11 @@ const Home = () => {
   return ( 
     <>
       <Navbar/>
-      <Hero/>
-      <About/>
-      <CatalogPreview/>
+      <main>
+        <Hero/>
+        <About/>
+        <CatalogPreview/>
+      </main>
       <Footer/>
     </>
    );

@@ -88,7 +88,8 @@ const AuthPage = () => {
 
 
         return (
-            <div className="w-[100vw] h-[100vh] py-[100px] flex items-center justify-center">
+            <div className="w-[100vw] h-[100vh] py-[100px] flex flex-col items-center justify-center">
+                <h2 className="hidden text-white">Аутентификация</h2>
                 <Tabs defaultValue={"login"} className={" rounded-sm w-1/3 h-2/3 items-center justify-center flex gap-y-0"}>
                     <TabsList className={"h-1/6 bg-black/50 rounded-b-none rounded-t-sm flex justify-between lg:justify-center lg:gap-x-24 text-white w-full"}>
                         <TabsTrigger className={"rounded-xs"} value={"login"}>Вход</TabsTrigger>
@@ -136,7 +137,9 @@ const AuthPage = () => {
     return ( 
         <>
             <Navbar/>
+            <main>
             <Form/>
+            </main>
             <Footer/>
         </>
      );

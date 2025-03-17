@@ -149,7 +149,9 @@ const Catalog = () => {
     return ( 
         <>
             <Navbar/>
+            <main>
             <CatalogMain/>
+            </main>
             <Footer/>
         </>
      );

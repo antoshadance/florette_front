@@ -24,9 +24,9 @@ const MePage = () => {
     return ( 
         <>
             <Navbar/>
-            <div className="h-[100vh] w-[100vw] flex items-center justify-center">
-                Redirecting ...
-            </div>
+            <main className="h-[100vh] w-[100vw] flex items-center justify-center">
+                <h1>Redirecting ...</h1>
+            </main>
             <Footer/>
         </>
      );

@@ -26,12 +26,9 @@ const AdminLayout = ({children}) => {
         }
     },[])
 
-    return ( 
-        <>
-            <Navbar/>
-            <div className="w-[100vw] h-[100vh] flex items-center justify-between text-white pt-[120px] pb-6 px-4 lg:px-24">
-                <div className="w-1/3 h-full  border-r border-[#fff]/25 pr-4 flex flex-col justify-between">
-                    <div className="flex flex-col gap-y-6">
+    const Buttons = () => {
+        return (
+            <div className="flex flex-col gap-y-6">
                         <ul className="flex flex-col gap-y-6">
                             <li
                             className={cn("cursor-pointer px-4 py-2 rounded-sm transition-all hover:bg-white hover:text-black",path=="add-product"&&"bg-[#ccc] text-black")}
@@ -43,10 +40,34 @@ const AdminLayout = ({children}) => {
                             >Удалить товар</li>
                         </ul>
                     </div>
-                    <div className="hover:text-[#ccc] transition-all flex gap-x-4 mb-6 cursor-pointer" role="button" onClick={logout}>
-                        <p>Выйти из аккаунта</p>
-                        <ArrowRight strokeWidth={1.5} className="shrink-0"/>
-                    </div>
+        )
+    }
+
+    const Exit = () => {
+        return (
+            <div className="hover:text-[#ccc] transition-all flex gap-x-4 cursor-pointer mt-auto" role="button" onClick={logout}>
+                <p>Выйти из аккаунта</p>
+                <ArrowRight strokeWidth={1.5} className="shrink-0"/>
+            </div>
+        )
+    }
+
+    const UserInfo = () => {
+        return (
+            <div className="w-full rounded flex flex-col justify-between p-4 border bg-[#293230] border-white/25">
+                <h2 className="uppercase">Пользователь admin</h2>
+            </div>
+        )
+    }
+
+    return ( 
+        <>
+            <Navbar/>
+            <div className="w-[100vw] h-[100vh] flex items-center justify-between text-white pt-[120px] pb-6 px-4 lg:px-24">
+                <div className="w-1/3 h-full  border-r border-[#fff]/25 pr-4 flex flex-col gap-y-12">
+                    <UserInfo/>
+                    <Buttons/>
+                    <Exit/>
                 </div>
                 <div className="w-2/3 h-full pl-4  hideyscroll overflow-scroll">
                     {children}
