@@ -90,7 +90,7 @@ const BasketPage = () => {
     }
 
     return ( 
-        <div className="w-full h-full flex flex-col gap-y-4">
+        <main className="w-full h-full flex flex-col gap-y-4">
             {data==undefined&&
                 <Skeleton className={"w-full h-[120px]"}/>
                 }
@@ -107,7 +107,7 @@ const BasketPage = () => {
                     )
                 })}
                 {(data&&data.length>0)&&<SumCont/>}
-        </div>
+        </main>
      );
 }
  

@@ -79,7 +79,7 @@ const EditCredentials = () => {
     }
 
     return ( 
-        <div className="w-full h-full flex flex-col">
+        <main className="w-full h-full flex flex-col">
             <form className="w-full h-2/3 flex flex-col gap-y-6" onSubmit={handleSubmit}>
                 <div className="lg:w-1/2 flex flex-col gap-y-2">
                     <label htmlFor="user_name" className="uppercase font-semibold">Имя</label>
@@ -99,7 +99,7 @@ const EditCredentials = () => {
             <div className={cn("w-0 h-1/8 overflow-clip mt-auto rounded-md transition-all flex items-center justify-center bg-[#293230]/15",[changesMade&&"w-full h-1/8 border border-white/25"])}>
                 <h4 className="uppercase">Данные сохранены!</h4>
             </div>
-        </div>
+        </main>
      );
 }
  

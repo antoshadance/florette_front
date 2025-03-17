@@ -26,9 +26,9 @@ const UserMe = () => {
 
     const Cabinet = () => {
         return(
-            <div className="w-full h-full flex ">
+            <main className="w-full h-full flex ">
                 <h2 className="text-4xl">Добро пожаловать{user&&user.username?", "+user.username+"!":"!"}</h2>
-            </div>
+            </main>
         )
     }
  

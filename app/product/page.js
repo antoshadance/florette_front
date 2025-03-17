@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
 import Navbar from "@/app/_components/Navbar";
-import Footer from "@/app/_components/Navbar";
+import Footer from "@/app/_components/Footer";
 
 
 const ProductPage = () => {

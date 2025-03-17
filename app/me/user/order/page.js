@@ -119,7 +119,7 @@ const OrderPage = () => {
     };
 
     return ( 
-        <div className="w-full h-full">
+        <main className="w-full h-full">
             {!isOrdered?
                 <>
                     <div className="w-full h-full lg:h-1/2 flex flex-col gap-y-4 overflow-scroll hideyscroll">
@@ -181,7 +181,7 @@ const OrderPage = () => {
                     <p className="text-xl mt-12">Оператор свяжется с Вами и уточнит остальные детали</p>
                 </>
             }
-        </div>
+        </main>
      );
 }
  
